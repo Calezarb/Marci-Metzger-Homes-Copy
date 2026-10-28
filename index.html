@@ -14,8 +14,12 @@
         <script src="js/script.js" defer></script>
     </head>
     <body>
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+            <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></symbol>
+            <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></symbol>
+        </svg>
         <header class="header" id="header">
-            <a class="header__logo" href="#home"><img src="images/logo.png" alt="Marci Metzger Homes" /></a>
+            <a class="header__logo" href="#home"><img src="images/icons/marciicon.webp" alt="Marci Metzger Homes" /></a>
             <nav class="header__nav" id="nav" aria-label="Main">
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -38,7 +42,7 @@
 
             <section class="about" id="about">
                 <figure class="about__photo">
-                    <img src="images/marci.jpg" alt="Marci Metzger, REALTOR" />
+                    <img src="images/marci.webp" alt="Marci Metzger, REALTOR" />
                 </figure>
                 <div class="about__text">
                     <h2 class="about__name">Marci Metzger</h2>
@@ -60,8 +64,8 @@
 
             <section class="sold" id="get-it-sold">
                 <h2 class="title">Get It Sold</h2>
-                <div class="sold__row">
-                    <img src="images/kitchen.jpg" alt="Modern kitchen" />
+                <div class="sold__row reveal reveal--left">
+                    <img src="images/kitchen.webp" alt="Modern kitchen" />
                     <div class="sold__text">
                         <h3>Top Residential Sales Last 5 Years</h3>
                         <p>We helped nearly 90 clients in 2021, and closed 28.5 million in sales!</p>
@@ -72,8 +76,8 @@
                         </p>
                     </div>
                 </div>
-                <div class="sold__row">
-                    <img src="images/pool-house.jpg" alt="White house with pool" />
+                <div class="sold__row reveal reveal--right">
+                    <img src="images/pool-house.webp" alt="White house with pool" />
                     <div class="sold__text">
                         <h3>Don’t Just List it...</h3>
                         <p>
@@ -82,8 +86,8 @@
                         </p>
                     </div>
                 </div>
-                <div class="sold__row">
-                    <img src="images/keys.jpg" alt="House key on a wooden table" />
+                <div class="sold__row reveal reveal--left">
+                    <img src="images/keys.webp" alt="House key on a wooden table" />
                     <div class="sold__text">
                         <h3>Guide to Buyers</h3>
                         <p>
@@ -162,48 +166,63 @@
                         <button class="btn btn--light span-2" type="submit">Search Now</button>
                     </form>
                 </div>
+            </section>
 
-                <h3 class="affiliates__title">Our Affiliates</h3>
+            <section class="affiliates-section" aria-labelledby="affiliates-title">
+                <h2 class="title" id="affiliates-title">Our Affiliates</h2>
                 <ul class="affiliates">
-                    <li><img src="images/ridge-realty-group.png" alt="The Ridge Realty Group" /></li>
-                    <li><img src="images/equal-housing-opportunity.png" alt="Equal Housing Opportunity" /></li>
-                    <li><img src="images/realtor.png" alt="REALTOR" /></li>
-                    <li><img src="images/pahrump-valley-chamber.png" alt="Pahrump Valley Chamber of Commerce" /></li>
+                    <li class="reveal reveal--left" style="--i:0"><img src="images/icons/ridge-realty-group.webp" alt="The Ridge Realty Group" /></li>
+                    <li class="reveal reveal--left" style="--i:1"><img src="images/icons/equal-housing-opportunity.webp" alt="Equal Housing Opportunity" /></li>
+                    <li class="reveal reveal--left" style="--i:2"><img src="images/icons/realtor.webp" alt="REALTOR" /></li>
+                    <li class="reveal reveal--left" style="--i:3"><img src="images/icons/pahrump-valley-chamber.webp" alt="Pahrump Valley Chamber of Commerce" /></li>
                 </ul>
             </section>
 
-            <section class="gallery" aria-label="Photo gallery">
+            <section class="gallery" id="gallery" aria-label="Photo gallery" aria-roledescription="carousel">
                 <h2 class="title title--light">Photo Gallery</h2>
                 <div class="gallery__viewport">
                     <ul class="gallery__track">
-                        <li class="gallery__slide">
-                            <img src="images/gallery-1.jpg" alt="Aerial view of golf course community" />
+                        <li class="gallery__slide" role="group" aria-roledescription="slide" aria-label="1 of 7">
+                            <figure>
+                                <img src="images/gallery-1.webp" alt="Aerial view of golf course community" />
+                                <figcaption aria-hidden="true">Aerial view of golf course community</figcaption>
+                            </figure>
                         </li>
-                        <li class="gallery__slide">
-                            <img src="images/gallery-2.jpg" alt="Window view of a property" loading="lazy" />
+                        <li class="gallery__slide" role="group" aria-roledescription="slide" aria-label="2 of 7">
+                            <figure>
+                                <img src="images/gallery-2.webp" alt="Window view of a property" loading="lazy" />
+                                <figcaption aria-hidden="true">Window view of a property</figcaption>
+                            </figure>
                         </li>
-                        <li class="gallery__slide">
-                            <img src="images/gallery-3.jpg" alt="Aerial view of three houses" loading="lazy" />
+                        <li class="gallery__slide" role="group" aria-roledescription="slide" aria-label="3 of 7">
+                            <figure>
+                                <img src="images/gallery-3.webp" alt="Aerial view of three houses" loading="lazy" />
+                                <figcaption aria-hidden="true">Aerial view of three houses</figcaption>
+                            </figure>
                         </li>
-                        <li class="gallery__slide">
-                            <img src="images/gallery-4.jpg" alt="Aerial view of a community" loading="lazy" />
+                        <li class="gallery__slide" role="group" aria-roledescription="slide" aria-label="4 of 7">
+                            <figure>
+                                <img src="images/gallery-4.webp" alt="Aerial view of a community" loading="lazy" />
+                                <figcaption aria-hidden="true">Aerial view of a community</figcaption>
+                            </figure>
                         </li>
-                        <li class="gallery__slide">
-                            <img src="images/gallery-5.jpg" alt="Aerial of modern house" loading="lazy" />
+                        <li class="gallery__slide" role="group" aria-roledescription="slide" aria-label="5 of 7">
+                            <figure>
+                                <img src="images/gallery-5.webp" alt="Aerial of modern house" loading="lazy" />
+                                <figcaption aria-hidden="true">Aerial of modern house</figcaption>
+                            </figure>
                         </li>
-                        <li class="gallery__slide">
-                            <img
-                                src="images/gallery-6.jpg"
-                                alt="Aerial of a property with tennis court"
-                                loading="lazy"
-                            />
+                        <li class="gallery__slide" role="group" aria-roledescription="slide" aria-label="6 of 7">
+                            <figure>
+                                <img src="images/gallery-6.webp" alt="Aerial of a property with tennis court" loading="lazy" />
+                                <figcaption aria-hidden="true">Aerial of a property with tennis court</figcaption>
+                            </figure>
                         </li>
-                        <li class="gallery__slide">
-                            <img
-                                src="images/gallery-7.jpg"
-                                alt="Aerial of connected homes with a lake"
-                                loading="lazy"
-                            />
+                        <li class="gallery__slide" role="group" aria-roledescription="slide" aria-label="7 of 7">
+                            <figure>
+                                <img src="images/gallery-7.webp" alt="Aerial of connected homes with a lake" loading="lazy" />
+                                <figcaption aria-hidden="true">Aerial of connected homes with a lake</figcaption>
+                            </figure>
                         </li>
                     </ul>
                     <button class="gallery__btn gallery__btn--prev" type="button" aria-label="Previous photo">
@@ -213,14 +232,18 @@
                         &#8250;
                     </button>
                 </div>
-                <p class="gallery__count" aria-live="polite"><span id="current">1</span> / <span id="total">7</span></p>
+                <div class="gallery__controls">
+                    <button class="gallery__play" type="button" aria-label="Pause slideshow">Pause</button>
+                    <p class="gallery__count"><span id="current">01</span> / <span id="total">07</span></p>
+                    <div class="gallery__progress" aria-hidden="true"><span></span></div>
+                </div>
             </section>
 
-            <section class="services">
+            <section class="services" id="services">
                 <h2 class="title">Our Services</h2>
                 <ul class="services__list">
-                    <li class="card">
-                        <img src="images/services-1.jpg" alt="White coffee trolley table with a vase" />
+                    <li class="card reveal reveal--up" style="--i:0">
+                        <img src="images/services-1.webp" alt="White coffee trolley table with a vase" />
                         <h3>Real Estate Done Right</h3>
                         <p>
                             Nervous about your property adventure? Don’t be. Whether you're getting ready to buy or sell
@@ -228,8 +251,8 @@
                             team ensures you get the best experience possible!
                         </p>
                     </li>
-                    <li class="card">
-                        <img src="images/services-2.jpg" alt="Front view of a white house with a pool" />
+                    <li class="card reveal reveal--up" style="--i:1">
+                        <img src="images/services-2.webp" alt="Front view of a white house with a pool" />
                         <h3>Commercial &amp; Residential</h3>
                         <p>
                             Large or small, condo or mansion, we can find it and get at the price that's right.
@@ -237,8 +260,8 @@
                             Happy to help you find where to put your hard-earned dollars.
                         </p>
                     </li>
-                    <li class="card">
-                        <img src="images/services-3.jpg" alt="Two people shaking hands over a laptop" />
+                    <li class="card reveal reveal--up" style="--i:2">
+                        <img src="images/services-3.webp" alt="Two people shaking hands over a laptop" />
                         <h3>Rely on Expertise</h3>
                         <p>
                             If you have questions about affordability, credit, and loan options, trust us to connect you
@@ -247,6 +270,55 @@
                         </p>
                     </li>
                 </ul>
+            </section>
+
+            <section class="reviews" id="reviews" aria-roledescription="carousel" aria-label="Client reviews">
+                <h2 class="title title--light">Client Reviews</h2>
+                <div class="reviews__rating">
+                    <p class="reviews__score">4.4</p>
+                    <div>
+                        <span class="stars" style="--p: 88%" role="img" aria-label="Rated 4.4 out of 5"></span>
+                        <p class="reviews__count">Based on 6 reviews</p>
+                    </div>
+                </div>
+                <div class="reviews__carousel reveal reveal--up">
+                    <ul class="reviews__track" tabindex="0" aria-label="Reviews">
+                    <li class="review" role="group" aria-roledescription="slide">
+                        <span class="stars" role="img" aria-label="5 out of 5 stars"></span>
+                        <blockquote><p>Marci Metzger was fantastic to work with! She quickly understood our must-haves versus our nice-to-haves and found us a home that checked every box. Even though she was traveling in Europe during our closing, she stayed in touch and made sure we had excellent local support. Highly recommend.</p></blockquote>
+                        <p class="review__author"><span class="review__avatar" aria-hidden="true">J</span>Jana</p>
+                    </li>
+                    <li class="review" role="group" aria-roledescription="slide">
+                        <span class="stars" role="img" aria-label="5 out of 5 stars"></span>
+                        <blockquote><p>Marci is the BEST! Prompt, organized, informative and most helpful! Did an excellent job in selling our home!</p></blockquote>
+                        <p class="review__author"><span class="review__avatar" aria-hidden="true">P</span>Patricia Crooks</p>
+                    </li>
+                    <li class="review" role="group" aria-roledescription="slide">
+                        <span class="stars" role="img" aria-label="5 out of 5 stars"></span>
+                        <blockquote><p>The ladies in this office are smart and knowledgeable.</p></blockquote>
+                        <p class="review__author"><span class="review__avatar" aria-hidden="true">D</span>Deborah Mills</p>
+                    </li>
+                    <li class="review" role="group" aria-roledescription="slide">
+                        <span class="stars" role="img" aria-label="5 out of 5 stars"></span>
+                        <blockquote><p>Positive: Responsiveness, Professionalism</p></blockquote>
+                        <p class="review__author"><span class="review__avatar" aria-hidden="true">T</span>T.H</p>
+                    </li>
+                    <li class="review" role="group" aria-roledescription="slide">
+                        <span class="stars" role="img" aria-label="5 out of 5 stars"></span>
+                        <blockquote><p>5 star rating</p></blockquote>
+                        <p class="review__author"><span class="review__avatar" aria-hidden="true">J</span>James Davis</p>
+                    </li>
+                    <li class="review" role="group" aria-roledescription="slide">
+                        <span class="stars" role="img" aria-label="5 out of 5 stars"></span>
+                        <blockquote><p>5 star rating</p></blockquote>
+                        <p class="review__author"><span class="review__avatar" aria-hidden="true">T</span>Toni Waffle</p>
+                    </li>
+                    </ul>
+                    <div class="reviews__controls">
+                        <button class="reviews__btn reviews__btn--prev" type="button" aria-label="Previous review">&#8249;</button>
+                        <button class="reviews__btn reviews__btn--next" type="button" aria-label="Next review">&#8250;</button>
+                    </div>
+                </div>
             </section>
 
             <section class="visit" id="contact">
@@ -262,11 +334,11 @@
                         <button class="btn btn--gray" type="submit">Send</button>
                         <p class="visit__recaptcha">
                             This site is protected by reCAPTCHA and the Google
-                            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer"
+                            <a href="https://policies.google.com/privacy" target="_blank"
                                 >Privacy Policy</a
                             >
                             and
-                            <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer"
+                            <a href="https://policies.google.com/terms" target="_blank"
                                 >Terms of Service</a
                             >
                             apply.
@@ -295,7 +367,7 @@
                     <address class="visit__info">
                         <strong>Marci Metzger - THE RIDGE REALTY GROUP</strong>
                         <span>3190 HW-160, Suite F, Pahrump, Nevada 89048, United States</span>
-                        <a href="tel:+12069196886">(206) 919-6886</a>
+                        <a class="visit__phone" href="tel:+12069196886"><svg class="icon" aria-hidden="true"><use href="#i-phone" /></svg>(206) 919-6886</a>
                     </address>
                     <iframe
                         class="visit__map"
@@ -308,14 +380,17 @@
         </main>
 
         <footer class="footer">
-            <ul class="footer__social">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <img class="footer__logo" src="images/icons/marciicon.webp" alt="Marci Metzger Homes" />
+                    <p>Helping buyers and sellers across Pahrump and Southern Nevada since 1995.</p>
+                    <ul class="footer__social">
                 <li>
                     <a
                         href="https://www.facebook.com/MarciHomes/"
                         aria-label="Facebook (opens in a new tab)"
                         target="_blank"
-                        rel="noopener noreferrer"
-                        ><img src="images/facebook.png" alt=""
+                        ><img src="images/icons/facebook.svg" alt="Facebook"
                     /></a>
                 </li>
                 <li>
@@ -323,8 +398,7 @@
                         href="https://www.instagram.com/marcimetzger_theridge/"
                         aria-label="Instagram (opens in a new tab)"
                         target="_blank"
-                        rel="noopener noreferrer"
-                        ><img src="images/instagram.png" alt=""
+                        ><img src="images/icons/instagram.svg" alt="Instagram"
                     /></a>
                 </li>
                 <li>
@@ -332,8 +406,7 @@
                         href="https://www.linkedin.com/in/marci-metzger-30642496/"
                         aria-label="LinkedIn (opens in a new tab)"
                         target="_blank"
-                        rel="noopener noreferrer"
-                        ><img src="images/linkedin.png" alt=""
+                        ><img src="images/icons/linkedin.svg" alt="LinkedIn"
                     /></a>
                 </li>
                 <li>
@@ -341,12 +414,38 @@
                         href="https://www.yelp.com/biz/xr3yQN_m2SgO0R_7S6p62w"
                         aria-label="Yelp (opens in a new tab)"
                         target="_blank"
-                        rel="noopener noreferrer"
-                        ><img src="images/yelp.png" alt=""
+                        ><img src="images/icons/yelp.svg" alt="Yelp"
                     /></a>
                 </li>
             </ul>
-            <p>Copyright &copy; 2026 Marci Metzger - All Rights Reserved</p>
+                </div>
+                <nav class="footer__col" aria-label="Footer">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#listings">Listings</a></li>
+                        <li><a href="#get-it-sold">Let’s Move</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="footer__col">
+                    <h3>Location</h3>
+                    <address>
+                        <p><svg class="icon" aria-hidden="true"><use href="#i-pin" /></svg><span>3190 HW-160, Suite F, Pahrump, Nevada 89048</span></p>
+                        <p><svg class="icon" aria-hidden="true"><use href="#i-phone" /></svg><a href="tel:+12069196886">(206) 919-6886</a></p>
+                        <p>Open daily 8:00 am - 7:00 pm</p>
+                    </address>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>Copyright &copy; 2026 Marci Metzger - All Rights Reserved</p>
+                <p>Equal Housing Opportunity</p>
+                <a class="footer__top" href="#home">Back to top &uarr;</a>
+            </div>
         </footer>
     </body>
 </html>
