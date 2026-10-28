@@ -19,18 +19,6 @@ This project is a front-end mockup for a luxury real estate website focused on P
 ## Local Preview
 Open `index.html` in a browser, or run a local static server from the project folder.
 
-Example:
-```bash
-python -m http.server 8000
-```
-Then visit:
-```text
-http://localhost:8000
-```
-
 ## Deployment
 This project is connected to the GitHub repository:
 https://github.com/Calezarb/Marci-Metzger-Homes-Copy.git
-
-## Notes
-This is a front-end marketing/static website build and can be expanded with additional sections, forms, or CMS integration later.
