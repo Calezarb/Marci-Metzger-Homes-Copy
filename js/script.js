@@ -14,8 +14,11 @@ onScroll();
 /* ---------- mobile menu ---------- */
 function setMenu(open) {
     nav.classList.toggle("is-open", open);
+    header.classList.toggle("has-menu", open); // header takes the menu's white while it is open
     toggle.setAttribute("aria-expanded", open);
 }
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
+window.addEventListener("resize", () => { if (window.innerWidth > 800) setMenu(false); });
 toggle.addEventListener("click", () => setMenu(!nav.classList.contains("is-open")));
 nav.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
 
@@ -31,43 +34,104 @@ const revealObserver = new IntersectionObserver(
 );
 document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
-/* ---------- gallery carousel ---------- */
+/* ---------- gallery carousel (loops forward forever) ---------- */
 const gallery = document.querySelector(".gallery");
 const viewport = gallery.querySelector(".gallery__viewport");
 const track = gallery.querySelector(".gallery__track");
-const slides = [...gallery.querySelectorAll(".gallery__slide")];
+const real = [...gallery.querySelectorAll(".gallery__slide")];
+const n = real.length;
+const CL = 2; // clones on each side, so the neighbours always have a photo to peek at
 const current = document.getElementById("current");
 const total = document.getElementById("total");
 const progress = gallery.querySelector(".gallery__progress span");
 const playBtn = gallery.querySelector(".gallery__play");
-const pad = (n) => String(n).padStart(2, "0");
+const pad = (num) => String(num).padStart(2, "0");
 const DELAY = 5000;
 
-total.textContent = pad(slides.length);
+total.textContent = pad(n);
 
-let index = 0;
+// Copies of the last and first slides sit at the ends. Going 7 -> 1 slides onto a copy of 1,
+// then we silently jump to the real 1, so the carousel never rewinds backwards.
+const makeClone = (el) => {
+    const c = el.cloneNode(true);
+    ["role", "aria-label", "aria-roledescription"].forEach((a) => c.removeAttribute(a));
+    c.setAttribute("aria-hidden", "true");
+    return c;
+};
+track.prepend(...real.slice(-CL).map(makeClone));
+track.append(...real.slice(0, CL).map(makeClone));
+const slides = [...track.children];
+
+// thumbnails that appear over the photo on hover
+const thumbBox = document.createElement("div");
+thumbBox.className = "gallery__thumbs";
+thumbBox.setAttribute("role", "group");
+thumbBox.setAttribute("aria-label", "Choose a photo");
+const thumbs = real.map((el, i) => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "gallery__thumb";
+    b.setAttribute("aria-label", `Show photo ${i + 1}`);
+    b.innerHTML = `<img src="${el.querySelector("img").getAttribute("src")}" alt="" loading="lazy">`;
+    b.addEventListener("click", () => jump(i));
+    thumbBox.append(b);
+    return b;
+});
+viewport.append(thumbBox);
+
+let index = 0; // which real photo (0 - 6)
+let pos = CL; // position in the list that includes the clones
+let locked = false; // true for a moment while we are on a clone
 let timer = null;
 let playing = !matchMedia("(prefers-reduced-motion: reduce)").matches; // no autoplay if the user asked for less motion
 let paused = false; // temporary pause: hover / focus / off-screen
 
-function show(i) {
-    index = (i + slides.length) % slides.length; // loops at both ends
-    const s = slides[index];
+function place(animate) {
+    const s = slides[pos];
     const offset = viewport.clientWidth / 2 - (s.offsetLeft + s.offsetWidth / 2);
+    track.classList.toggle("no-anim", !animate);
     track.style.transform = `translateX(${offset}px)`; // centers the active slide
-    slides.forEach((el, n) => el.classList.toggle("is-active", n === index));
+    slides.forEach((el, k) => el.classList.toggle("is-active", k === pos));
+    if (!animate) {
+        void track.offsetWidth; // apply the instant move before animations come back
+        track.classList.remove("no-anim");
+    }
+    index = (((pos - CL) % n) + n) % n;
     current.textContent = pad(index + 1);
-    progress.style.setProperty("--p", (index + 1) / slides.length);
+    progress.style.setProperty("--p", (index + 1) / n);
+    thumbs.forEach((t, k) => t.setAttribute("aria-current", k === index));
+}
+
+function step(delta) {
+    if (locked) return;
+    pos += delta;
+    place(true);
+    if (pos < CL || pos >= CL + n) {
+        // we are on a clone: once the slide animation ends, jump to its real twin
+        locked = true;
+        setTimeout(() => {
+            pos = CL + (((pos - CL) % n) + n) % n;
+            place(false);
+            locked = false;
+        }, 650);
+    }
 }
 
 function schedule() {
     clearInterval(timer);
-    if (playing && !paused && !document.hidden) timer = setInterval(() => show(index + 1), DELAY);
+    if (playing && !paused && !document.hidden) timer = setInterval(() => step(1), DELAY);
 }
 
-function go(i) {
-    show(i);
+function go(delta) {
+    step(delta);
     schedule(); // restart the timer after a manual change
+}
+
+function jump(i) {
+    if (locked) return;
+    pos = CL + i;
+    place(true);
+    schedule();
 }
 
 function setPlaying(value) {
@@ -77,14 +141,14 @@ function setPlaying(value) {
     schedule();
 }
 
-gallery.querySelector(".gallery__btn--prev").addEventListener("click", () => go(index - 1));
-gallery.querySelector(".gallery__btn--next").addEventListener("click", () => go(index + 1));
+gallery.querySelector(".gallery__btn--prev").addEventListener("click", () => go(-1));
+gallery.querySelector(".gallery__btn--next").addEventListener("click", () => go(1));
 playBtn.addEventListener("click", () => setPlaying(!playing));
 if (!playing) setPlaying(false);
 
 gallery.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") go(index - 1);
-    if (e.key === "ArrowRight") go(index + 1);
+    if (e.key === "ArrowLeft") go(-1);
+    if (e.key === "ArrowRight") go(1);
 });
 
 // pause while the user is interacting, or when the gallery is off screen
@@ -111,14 +175,14 @@ function endDrag(e) {
     dragging = false;
     viewport.classList.remove("is-dragging");
     const diff = e.clientX - startX;
-    if (Math.abs(diff) > 50) go(diff < 0 ? index + 1 : index - 1);
+    if (Math.abs(diff) > 50) go(diff < 0 ? 1 : -1);
 }
 viewport.addEventListener("pointerup", endDrag);
 viewport.addEventListener("pointercancel", () => { dragging = false; viewport.classList.remove("is-dragging"); });
 
-window.addEventListener("resize", () => show(index));
-window.addEventListener("load", () => show(index)); // re-center once images have loaded
-show(0);
+window.addEventListener("resize", () => place(false));
+window.addEventListener("load", () => place(false)); // re-center once images have loaded
+place(false);
 
 /* ---------- reviews carousel ---------- */
 const rTrack = document.querySelector(".reviews__track");

@@ -108,7 +108,8 @@ a {
         color 0.3s,
         border-color 0.3s;
 }
-.header.is-scrolled {
+.header.is-scrolled,
+.header.has-menu {
     height: 78px;
     background: #fff;
     color: var(--ink);
@@ -125,7 +126,8 @@ a {
     background: rgba(255, 255, 255, 0.55);
     transition: background 0.3s;
 }
-.header.is-scrolled::after {
+.header.is-scrolled::after,
+.header.has-menu::after {
     background: var(--line);
 }
 .header__logo {
@@ -146,7 +148,8 @@ a {
     left: var(--pad);
     transform: none;
 }
-.is-scrolled .header__logo img {
+.is-scrolled .header__logo img,
+.has-menu .header__logo img {
     height: 52px;
     filter: none;
 }
@@ -195,6 +198,19 @@ a {
     box-shadow:
         0 -7px currentColor,
         0 7px currentColor;
+}
+
+.header__toggle span {
+    transition: width 0.25s, height 0.25s, background 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+.header__toggle[aria-expanded="true"] span {
+    width: 14px;
+    height: 14px;
+    background: none;
+    box-shadow: none;
+    border: solid currentColor;
+    border-width: 0 2px 2px 0;
+    transform: translateY(-3px) rotate(45deg); /* the bottom-right corner of a rotated square = a "V" */
 }
 
 /* ---------- hero ---------- */
@@ -578,6 +594,66 @@ a {
     transform-origin: left;
     transform: scaleX(var(--p, 0.14));
     transition: transform 0.6s ease;
+}
+
+.gallery__track.no-anim,
+.gallery__track.no-anim .gallery__slide,
+.gallery__track.no-anim figcaption {
+    transition: none !important; /* used for the invisible jump back to the real slide */
+}
+.gallery__thumbs {
+    position: absolute;
+    top: 20px; /* use "bottom: 90px" instead of top to move the strip to the bottom */
+    left: 50%;
+    z-index: 2;
+    display: flex;
+    gap: 8px;
+    max-width: calc(100% - 24px);
+    padding: 8px;
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(4px);
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+.gallery__viewport:hover .gallery__thumbs,
+.gallery__viewport:focus-within .gallery__thumbs {
+    opacity: 1;
+    visibility: visible;
+}
+.gallery__thumb {
+    flex: none;
+    width: 56px;
+    height: 40px;
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background: none;
+    overflow: hidden;
+    opacity: 0.55; /* light until hovered */
+    cursor: pointer;
+    transition: opacity 0.2s, border-color 0.2s, transform 0.2s;
+}
+.gallery__thumb:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+.gallery__thumb[aria-current="true"] {
+    opacity: 0.95;
+    border-color: #fff;
+}
+.gallery__thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+@media (hover: none) {
+    .gallery__thumbs {
+        display: none; /* touch screens have swipe + arrows */
+    }
 }
 
 /* ---------- services ---------- */
@@ -1008,6 +1084,15 @@ a {
         opacity: 1;
         visibility: visible;
     }
+    /* scrolling must not open the menu, and the logo stays centred */
+    .header.is-scrolled .header__nav:not(.is-open) {
+        opacity: 0;
+        visibility: hidden;
+    }
+    .header.is-scrolled .header__logo {
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 @media (max-width: 600px) {
     .sold__row {
@@ -1055,5 +1140,30 @@ a {
 @media (max-width: 600px) {
     .review {
         flex-basis: 88%;
+    }
+}
+/* ---------- no sideways overflow (pinch-zoom showed blank space on the right) ---------- */
+html {
+    overflow-x: hidden;
+}
+body {
+    overflow-x: clip;
+}
+.sold,
+.services,
+.affiliates-section,
+.reviews {
+    overflow-x: clip; /* items waiting to slide in sit outside the screen */
+}
+@media (max-width: 600px) {
+    .js .reveal--left {
+        translate: -36px 0;
+    }
+    .js .reveal--right {
+        translate: 36px 0;
+    }
+    .gallery__thumb {
+        width: 40px;
+        height: 30px;
     }
 }
