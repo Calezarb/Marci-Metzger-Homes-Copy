@@ -7,7 +7,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Source+Sans+3:wght@400;600&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
             rel="stylesheet"
         />
         <link rel="stylesheet" href="css/style.css" />
@@ -17,15 +17,16 @@
         <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
             <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></symbol>
             <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></symbol>
+            <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M7.41 15.41 12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></symbol>
         </svg>
         <header class="header" id="header">
             <a class="header__logo" href="#home"><img src="images/icons/marciicon.webp" alt="Marci Metzger Homes" /></a>
             <nav class="header__nav" id="nav" aria-label="Main">
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#listings">Listings</a></li>
-                    <li><a href="#get-it-sold">Let’s Move</a></li>
-                    <li><a href="#about">About Us</a></li>
+                    <li><a href="">Listings</a></li>
+                    <li><a href="">Let’s Move</a></li>
+                    <li><a href="">About Us</a></li>
                 </ul>
             </nav>
             <button class="header__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">
@@ -34,86 +35,37 @@
         </header>
 
         <main>
-            <section class="hero" id="home">
-                <p class="hero__kicker">Marci Metzger - The Ridge Realty Group</p>
-                <h1 class="hero__title">Pahrump Realtor</h1>
-                <a class="btn btn--light" href="tel:+12069196886">Call Now</a>
-            </section>
-
-            <section class="about" id="about">
-                <figure class="about__photo">
-                    <img src="images/marci.webp" alt="Marci Metzger, REALTOR" />
-                </figure>
-                <div class="about__text">
-                    <h2 class="about__name">Marci Metzger</h2>
-                    <p class="about__desc">
-                        Marci was a REALTOR, then licensed Broker, in Washington State. Now, she is enjoying the
-                        sunshine, and helping clients in Southern Nevada. Having helped buyers and sellers in many
-                        markets since 1995, she is a wealth of knowledge.
-                    </p>
-                    <p class="about__role">Realtor for nearly 3 decades</p>
-                    <a class="about__phone" href="tel:+12069196886"
-                        ><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                            <path
-                                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
-                            /></svg
-                        ><span>206-919-6886</span></a
-                    >
-                </div>
-            </section>
-
-            <section class="sold" id="get-it-sold">
-                <h2 class="title">Get It Sold</h2>
-                <div class="sold__row reveal reveal--left">
-                    <img src="images/kitchen.webp" alt="Modern kitchen" />
-                    <div class="sold__text">
-                        <h3>Top Residential Sales Last 5 Years</h3>
-                        <p>We helped nearly 90 clients in 2021, and closed 28.5 million in sales!</p>
-                        <p>
-                            Our team works hard everyday to grow and learn, so that we may continue to excel in our
-                            market. Our clients deserve our best, &amp; we want to make sure our best is better every
-                            year.
-                        </p>
-                    </div>
-                </div>
-                <div class="sold__row reveal reveal--right">
-                    <img src="images/pool-house.webp" alt="White house with pool" />
-                    <div class="sold__text">
-                        <h3>Don’t Just List it...</h3>
-                        <p>
-                            Get it SOLD! We exhaust every avenue to ensure our listings are at the fingertips of every
-                            possible buyer, getting you top dollar for your home.
-                        </p>
-                    </div>
-                </div>
-                <div class="sold__row reveal reveal--left">
-                    <img src="images/keys.webp" alt="House key on a wooden table" />
-                    <div class="sold__text">
-                        <h3>Guide to Buyers</h3>
-                        <p>
-                            Nobody knows the market like we do. Enjoy having a pro at your service. Market analysis,
-                            upgrades lists, contractors on speed dial, &amp; more!
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="find" id="listings">
-                <h2 class="title title--light">Find Your Dream Home</h2>
-                <div class="search">
-                    <h3 class="search__title">Search Listings</h3>
-                    <form class="search__form" action="#" method="get">
-                        <div class="field span-2">
+            <div class="hero-block">
+                <section class="hero" id="home">
+                    <p class="hero__kicker">Marci Metzger - The Ridge Realty Group</p>
+                    <h1 class="hero__title">Pahrump Realtor</h1>
+                    <a class="btn btn--light" href="tel:+12069196886">Call Now</a>
+                </section>
+                <button
+                    class="search-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="listings"
+                >
+                    <span>Search Properties</span>
+                    <span class="search-toggle__chevrons" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><use href="#i-chevron" /></svg>
+                        <svg viewBox="0 0 24 24"><use href="#i-chevron" /></svg>
+                        <svg viewBox="0 0 24 24"><use href="#i-chevron" /></svg>
+                    </span>
+                </button>
+                <div class="search" id="listings">
+                    <form class="search__form" aria-label="Search listings" action="#" method="get">
+                        <div class="field">
                             <label for="location">Location</label>
                             <select name="location" id="location">
                                 <option value="">Any</option>
-                                <!-- paste your full location list here -->
                                 <option value="henderson">Henderson</option>
                                 <option value="las-vegas">Las Vegas</option>
                                 <option value="pahrump">Pahrump</option>
                             </select>
                         </div>
-                        <div class="field span-2">
+                        <div class="field">
                             <label for="type">Type</label>
                             <select name="type" id="type">
                                 <option value="">Any</option>
@@ -123,7 +75,7 @@
                                 <option value="residential">Residential</option>
                             </select>
                         </div>
-                        <div class="field span-2">
+                        <div class="field">
                             <label for="sort-by">Sort By</label>
                             <select name="sort-by" id="sort-by">
                                 <option value="newest">Newest</option>
@@ -163,8 +115,75 @@
                             <label for="max-price">Max Price</label>
                             <input type="text" inputmode="numeric" name="max-price" id="max-price" placeholder="$" />
                         </div>
-                        <button class="btn btn--light span-2" type="submit">Search Now</button>
+                        <button class="btn btn--light" type="submit">Search Now</button>
                     </form>
+                </div>
+            </div>
+
+            <section class="about" id="about">
+                <figure class="about__photo">
+                    <img src="images/marci.webp" alt="Marci Metzger, REALTOR" />
+                </figure>
+                <div class="about__text">
+                    <h2 class="about__name">Marci Metzger</h2>
+                    <p class="about__desc">
+                        Marci was a REALTOR, then licensed Broker, in Washington State. Now, she is enjoying the
+                        sunshine, and helping clients in Southern Nevada. Having helped buyers and sellers in many
+                        markets since 1995, she is a wealth of knowledge.
+                    </p>
+                    <p class="about__role">Realtor for nearly 3 decades</p>
+                    <a class="about__phone" href="tel:+12069196886"
+                        ><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path
+                                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                            /></svg
+                        ><span>206-919-6886</span></a
+                    >
+                </div>
+            </section>
+
+            <section class="why" id="why-us">
+                <div class="why__grid">
+                    <div class="why__col why__col--left">
+                        <h2 class="title title--left title--light why__title">Why Us?</h2>
+                        <div class="sold__row sold__row--second reveal reveal--left">
+                            <span class="badge">Top dollar for your home</span>
+                            <img src="images/pool-house.webp" alt="White house with pool" />
+                            <div class="sold__text">
+                                <h3>Don’t Just List it...</h3>
+                                <p>
+                                    Get it SOLD! We exhaust every avenue to ensure our listings are at the fingertips of every
+                                    possible buyer, getting you top dollar for your home.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="why__col why__col--right">
+                        <div class="sold__row sold__row--first reveal reveal--right">
+                            <span class="badge">$28.5M in sales</span>
+                            <img src="images/kitchen.webp" alt="Modern kitchen" />
+                            <div class="sold__text">
+                                <h3>Top Residential Sales Last 5 Years</h3>
+                                <p>We helped nearly 90 clients in 2021, and closed 28.5 million in sales!</p>
+                                <p>
+                                    Our team works hard everyday to grow and learn, so that we may continue to excel in our
+                                    market. Our clients deserve our best, &amp; we want to make sure our best is better every
+                                    year.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="sold__row sold__row--third reveal reveal--right">
+                            <span class="badge">Contractors on speed dial</span>
+                            <img src="images/keys.webp" alt="House key on a wooden table" />
+                            <div class="sold__text">
+                                <h3>Guide to Buyers</h3>
+                                <p>
+                                    Nobody knows the market like we do. Enjoy having a pro at your service. Market analysis,
+                                    upgrades lists, contractors on speed dial, &amp; more!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -178,145 +197,157 @@
                 </ul>
             </section>
 
-            <section class="gallery" id="gallery" aria-label="Photo gallery" aria-roledescription="carousel">
-                <h2 class="title title--light">Photo Gallery</h2>
-                <div class="gallery__viewport">
-                    <ul class="gallery__track">
-                        <li class="gallery__slide" role="group" aria-roledescription="slide" aria-label="1 of 7">
-                            <figure>
-                                <img src="images/gallery-1.webp" alt="Aerial view of golf course community" />
-                                <figcaption aria-hidden="true">Aerial view of golf course community</figcaption>
-                            </figure>
+            <section class="gallery" id="gallery" aria-roledescription="carousel" aria-label="Photo gallery">
+                <h2 class="title title--light">Gallery</h2>
+                <div class="gallery__layout">
+                    <ul class="gallery__thumbs" role="list">
+                        <li>
+                            <button type="button" class="gallery__thumb is-active" aria-current="true" aria-label="Show photo 1: Golf course community">
+                                <img src="images/gallery-1.webp" alt="" />
+                            </button>
                         </li>
-                        <li class="gallery__slide" role="group" aria-roledescription="slide" aria-label="2 of 7">
-                            <figure>
-                                <img src="images/gallery-2.webp" alt="Window view of a property" loading="lazy" />
-                                <figcaption aria-hidden="true">Window view of a property</figcaption>
-                            </figure>
+                        <li>
+                            <button type="button" class="gallery__thumb" aria-label="Show photo 2: Window view">
+                                <img src="images/gallery-2.webp" alt="" loading="lazy" />
+                            </button>
                         </li>
-                        <li class="gallery__slide" role="group" aria-roledescription="slide" aria-label="3 of 7">
-                            <figure>
-                                <img src="images/gallery-3.webp" alt="Aerial view of three houses" loading="lazy" />
-                                <figcaption aria-hidden="true">Aerial view of three houses</figcaption>
-                            </figure>
+                        <li>
+                            <button type="button" class="gallery__thumb" aria-label="Show photo 3: Three homes, aerial view">
+                                <img src="images/gallery-3.webp" alt="" loading="lazy" />
+                            </button>
                         </li>
-                        <li class="gallery__slide" role="group" aria-roledescription="slide" aria-label="4 of 7">
-                            <figure>
-                                <img src="images/gallery-4.webp" alt="Aerial view of a community" loading="lazy" />
-                                <figcaption aria-hidden="true">Aerial view of a community</figcaption>
-                            </figure>
+                        <li>
+                            <button type="button" class="gallery__thumb" aria-label="Show photo 4: Community aerial">
+                                <img src="images/gallery-4.webp" alt="" loading="lazy" />
+                            </button>
                         </li>
-                        <li class="gallery__slide" role="group" aria-roledescription="slide" aria-label="5 of 7">
-                            <figure>
-                                <img src="images/gallery-5.webp" alt="Aerial of modern house" loading="lazy" />
-                                <figcaption aria-hidden="true">Aerial of modern house</figcaption>
-                            </figure>
+                        <li>
+                            <button type="button" class="gallery__thumb" aria-label="Show photo 5: Modern home">
+                                <img src="images/gallery-5.webp" alt="" loading="lazy" />
+                            </button>
                         </li>
-                        <li class="gallery__slide" role="group" aria-roledescription="slide" aria-label="6 of 7">
-                            <figure>
-                                <img src="images/gallery-6.webp" alt="Aerial of a property with tennis court" loading="lazy" />
-                                <figcaption aria-hidden="true">Aerial of a property with tennis court</figcaption>
-                            </figure>
+                        <li>
+                            <button type="button" class="gallery__thumb" aria-label="Show photo 6: Tennis court nearby">
+                                <img src="images/gallery-6.webp" alt="" loading="lazy" />
+                            </button>
                         </li>
-                        <li class="gallery__slide" role="group" aria-roledescription="slide" aria-label="7 of 7">
-                            <figure>
-                                <img src="images/gallery-7.webp" alt="Aerial of connected homes with a lake" loading="lazy" />
-                                <figcaption aria-hidden="true">Aerial of connected homes with a lake</figcaption>
-                            </figure>
+                        <li>
+                            <button type="button" class="gallery__thumb" aria-label="Show photo 7: Homes by the lake">
+                                <img src="images/gallery-7.webp" alt="" loading="lazy" />
+                            </button>
                         </li>
                     </ul>
-                    <button class="gallery__btn gallery__btn--prev" type="button" aria-label="Previous photo">
-                        &#8249;
-                    </button>
-                    <button class="gallery__btn gallery__btn--next" type="button" aria-label="Next photo">
-                        &#8250;
-                    </button>
-                </div>
-                <div class="gallery__controls">
-                    <button class="gallery__play" type="button" aria-label="Pause slideshow">Pause</button>
-                    <p class="gallery__count"><span id="current">01</span> / <span id="total">07</span></p>
-                    <div class="gallery__progress" aria-hidden="true"><span></span></div>
-                </div>
-            </section>
-
-            <section class="services" id="services">
-                <h2 class="title">Our Services</h2>
-                <ul class="services__list">
-                    <li class="card reveal reveal--up" style="--i:0">
-                        <img src="images/services-1.webp" alt="White coffee trolley table with a vase" />
-                        <h3>Real Estate Done Right</h3>
-                        <p>
-                            Nervous about your property adventure? Don’t be. Whether you're getting ready to buy or sell
-                            your residence, looking at investment properties, or just curious about the markets, our
-                            team ensures you get the best experience possible!
-                        </p>
-                    </li>
-                    <li class="card reveal reveal--up" style="--i:1">
-                        <img src="images/services-2.webp" alt="Front view of a white house with a pool" />
-                        <h3>Commercial &amp; Residential</h3>
-                        <p>
-                            Large or small, condo or mansion, we can find it and get at the price that's right.
-                            Fixer-uppers? Luxury? We can help with all of it! We live, work, and play in this community.
-                            Happy to help you find where to put your hard-earned dollars.
-                        </p>
-                    </li>
-                    <li class="card reveal reveal--up" style="--i:2">
-                        <img src="images/services-3.webp" alt="Two people shaking hands over a laptop" />
-                        <h3>Rely on Expertise</h3>
-                        <p>
-                            If you have questions about affordability, credit, and loan options, trust us to connect you
-                            with the right people to get the answers you need in a timely fashion. We make sure you feel
-                            confident and educated every step of the way.
-                        </p>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="reviews" id="reviews" aria-roledescription="carousel" aria-label="Client reviews">
-                <h2 class="title title--light">Client Reviews</h2>
-                <div class="reviews__rating">
-                    <p class="reviews__score">4.4</p>
-                    <div>
-                        <span class="stars" style="--p: 88%" role="img" aria-label="Rated 4.4 out of 5"></span>
-                        <p class="reviews__count">Based on 6 reviews</p>
+                    <div class="gallery__stage">
+                        <ul class="gallery__slides" role="list">
+                            <li class="gallery__slide is-active">
+                                <img src="images/gallery-1.webp" alt="Aerial view of golf course community" />
+                                <span class="gallery__pill">Golf course community</span>
+                            </li>
+                            <li class="gallery__slide">
+                                <img src="images/gallery-2.webp" alt="Window view of a property" loading="lazy" />
+                                <span class="gallery__pill">Window view</span>
+                            </li>
+                            <li class="gallery__slide">
+                                <img src="images/gallery-3.webp" alt="Aerial view of three houses" loading="lazy" />
+                                <span class="gallery__pill">Three homes, aerial view</span>
+                            </li>
+                            <li class="gallery__slide">
+                                <img src="images/gallery-4.webp" alt="Aerial view of a community" loading="lazy" />
+                                <span class="gallery__pill">Community aerial</span>
+                            </li>
+                            <li class="gallery__slide">
+                                <img src="images/gallery-5.webp" alt="Aerial of modern house" loading="lazy" />
+                                <span class="gallery__pill">Modern home</span>
+                            </li>
+                            <li class="gallery__slide">
+                                <img src="images/gallery-6.webp" alt="Aerial of a property with tennis court" loading="lazy" />
+                                <span class="gallery__pill">Tennis court nearby</span>
+                            </li>
+                            <li class="gallery__slide">
+                                <img src="images/gallery-7.webp" alt="Aerial of connected homes with a lake" loading="lazy" />
+                                <span class="gallery__pill">Homes by the lake</span>
+                            </li>
+                        </ul>
+                        <p class="gallery__count"><span id="gallery-current">1</span> / <span id="gallery-total">7</span></p>
                     </div>
                 </div>
-                <div class="reviews__carousel reveal reveal--up">
-                    <ul class="reviews__track" tabindex="0" aria-label="Reviews">
-                    <li class="review" role="group" aria-roledescription="slide">
-                        <span class="stars" role="img" aria-label="5 out of 5 stars"></span>
-                        <blockquote><p>Marci Metzger was fantastic to work with! She quickly understood our must-haves versus our nice-to-haves and found us a home that checked every box. Even though she was traveling in Europe during our closing, she stayed in touch and made sure we had excellent local support. Highly recommend.</p></blockquote>
-                        <p class="review__author"><span class="review__avatar" aria-hidden="true">J</span>Jana</p>
-                    </li>
-                    <li class="review" role="group" aria-roledescription="slide">
-                        <span class="stars" role="img" aria-label="5 out of 5 stars"></span>
-                        <blockquote><p>Marci is the BEST! Prompt, organized, informative and most helpful! Did an excellent job in selling our home!</p></blockquote>
-                        <p class="review__author"><span class="review__avatar" aria-hidden="true">P</span>Patricia Crooks</p>
-                    </li>
-                    <li class="review" role="group" aria-roledescription="slide">
-                        <span class="stars" role="img" aria-label="5 out of 5 stars"></span>
-                        <blockquote><p>The ladies in this office are smart and knowledgeable.</p></blockquote>
-                        <p class="review__author"><span class="review__avatar" aria-hidden="true">D</span>Deborah Mills</p>
-                    </li>
-                    <li class="review" role="group" aria-roledescription="slide">
-                        <span class="stars" role="img" aria-label="5 out of 5 stars"></span>
-                        <blockquote><p>Positive: Responsiveness, Professionalism</p></blockquote>
-                        <p class="review__author"><span class="review__avatar" aria-hidden="true">T</span>T.H</p>
-                    </li>
-                    <li class="review" role="group" aria-roledescription="slide">
-                        <span class="stars" role="img" aria-label="5 out of 5 stars"></span>
-                        <blockquote><p>5 star rating</p></blockquote>
-                        <p class="review__author"><span class="review__avatar" aria-hidden="true">J</span>James Davis</p>
-                    </li>
-                    <li class="review" role="group" aria-roledescription="slide">
-                        <span class="stars" role="img" aria-label="5 out of 5 stars"></span>
-                        <blockquote><p>5 star rating</p></blockquote>
-                        <p class="review__author"><span class="review__avatar" aria-hidden="true">T</span>Toni Waffle</p>
-                    </li>
+            </section>
+
+            <section class="services-and-reviews" id="services-and-reviews">
+                <div class="sr__services">
+                    <h2 class="title title--left">Our Services</h2>
+                    <ul class="sr__list">
+                        <li class="sr-card reveal reveal--up" style="--i:0">
+                            <img src="images/services-1.webp" alt="White coffee trolley table with a vase" />
+                            <div class="sr-card__text">
+                                <h3>Real Estate Done Right</h3>
+                                <p>
+                                    Nervous about your property adventure? Don’t be. Whether you're getting ready to buy or sell
+                                    your residence, looking at investment properties, or just curious about the markets, our
+                                    team ensures you get the best experience possible!
+                                </p>
+                            </div>
+                        </li>
+                        <li class="sr-card sr-card--alt reveal reveal--up" style="--i:1">
+                            <img src="images/services-2.webp" alt="Front view of a white house with a pool" />
+                            <div class="sr-card__text">
+                                <h3>Commercial &amp; Residential</h3>
+                                <p>
+                                    Large or small, condo or mansion, we can find it and get at the price that's right.
+                                    Fixer-uppers? Luxury? We can help with all of it! We live, work, and play in this community.
+                                    Happy to help you find where to put your hard-earned dollars.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="sr-card reveal reveal--up" style="--i:2">
+                            <img src="images/services-3.webp" alt="Two people shaking hands over a laptop" />
+                            <div class="sr-card__text">
+                                <h3>Rely on Expertise</h3>
+                                <p>
+                                    If you have questions about affordability, credit, and loan options, trust us to connect you
+                                    with the right people to get the answers you need in a timely fashion. We make sure you feel
+                                    confident and educated every step of the way.
+                                </p>
+                            </div>
+                        </li>
                     </ul>
-                    <div class="reviews__controls">
-                        <button class="reviews__btn reviews__btn--prev" type="button" aria-label="Previous review">&#8249;</button>
-                        <button class="reviews__btn reviews__btn--next" type="button" aria-label="Next review">&#8250;</button>
+                </div>
+                <div class="sr__reviews" aria-roledescription="carousel" aria-label="Client reviews">
+                    <h2 class="title title--left">Client Reviews</h2>
+                    <div class="reviews__rating">
+                        <p class="reviews__score">4.4</p>
+                        <div>
+                            <span class="stars" style="--p: 88%" role="img" aria-label="Rated 4.4 out of 5"></span>
+                            <p class="reviews__count">Based on 6 reviews</p>
+                        </div>
+                    </div>
+                    <div class="reviews__carousel reveal reveal--up">
+                        <ul class="reviews__track" tabindex="0" aria-label="Reviews">
+                            <li class="review" role="group" aria-roledescription="slide">
+                                <span class="stars" role="img" aria-label="5 out of 5 stars"></span>
+                                <blockquote><p>Marci Metzger was fantastic to work with! She quickly understood our must-haves versus our nice-to-haves and found us a home that checked every box. Even though she was traveling in Europe during our closing, she stayed in touch and made sure we had excellent local support. Highly recommend.</p></blockquote>
+                                <p class="review__author"><span class="review__avatar" aria-hidden="true">J</span>Jana</p>
+                            </li>
+                            <li class="review" role="group" aria-roledescription="slide">
+                                <span class="stars" role="img" aria-label="5 out of 5 stars"></span>
+                                <blockquote><p>Marci is the BEST! Prompt, organized, informative and most helpful! Did an excellent job in selling our home!</p></blockquote>
+                                <p class="review__author"><span class="review__avatar" aria-hidden="true">P</span>Patricia Crooks</p>
+                            </li>
+                            <li class="review" role="group" aria-roledescription="slide">
+                                <span class="stars" role="img" aria-label="5 out of 5 stars"></span>
+                                <blockquote><p>The ladies in this office are smart and knowledgeable.</p></blockquote>
+                                <p class="review__author"><span class="review__avatar" aria-hidden="true">D</span>Deborah Mills</p>
+                            </li>
+                            <li class="review" role="group" aria-roledescription="slide">
+                                <span class="stars" role="img" aria-label="5 out of 5 stars"></span>
+                                <blockquote><p>Positive: Responsiveness, Professionalism</p></blockquote>
+                                <p class="review__author"><span class="review__avatar" aria-hidden="true">T</span>T.H</p>
+                            </li>
+                        </ul>
+                        <div class="reviews__controls">
+                            <button class="reviews__btn reviews__btn--prev" type="button" aria-label="Previous review">&#8249;</button>
+                            <button class="reviews__btn reviews__btn--next" type="button" aria-label="Next review">&#8250;</button>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -385,51 +416,50 @@
                     <img class="footer__logo" src="images/icons/marciicon.webp" alt="Marci Metzger Homes" />
                     <p>Helping buyers and sellers across Pahrump and Southern Nevada since 1995.</p>
                     <ul class="footer__social">
-                <li>
-                    <a
-                        href="https://www.facebook.com/MarciHomes/"
-                        aria-label="Facebook (opens in a new tab)"
-                        target="_blank"
-                        ><img src="images/icons/facebook.svg" alt="Facebook"
-                    /></a>
-                </li>
-                <li>
-                    <a
-                        href="https://www.instagram.com/marcimetzger_theridge/"
-                        aria-label="Instagram (opens in a new tab)"
-                        target="_blank"
-                        ><img src="images/icons/instagram.svg" alt="Instagram"
-                    /></a>
-                </li>
-                <li>
-                    <a
-                        href="https://www.linkedin.com/in/marci-metzger-30642496/"
-                        aria-label="LinkedIn (opens in a new tab)"
-                        target="_blank"
-                        ><img src="images/icons/linkedin.svg" alt="LinkedIn"
-                    /></a>
-                </li>
-                <li>
-                    <a
-                        href="https://www.yelp.com/biz/xr3yQN_m2SgO0R_7S6p62w"
-                        aria-label="Yelp (opens in a new tab)"
-                        target="_blank"
-                        ><img src="images/icons/yelp.svg" alt="Yelp"
-                    /></a>
-                </li>
-            </ul>
+                        <li>
+                            <a
+                                href="https://www.facebook.com/MarciHomes/"
+                                aria-label="Facebook (opens in a new tab)"
+                                target="_blank"
+                                ><img src="images/icons/facebook.svg" alt="Facebook"
+                            /></a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.instagram.com/marcimetzger_theridge/"
+                                aria-label="Instagram (opens in a new tab)"
+                                target="_blank"
+                                ><img src="images/icons/instagram.svg" alt="Instagram"
+                            /></a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.linkedin.com/in/marci-metzger-30642496/"
+                                aria-label="LinkedIn (opens in a new tab)"
+                                target="_blank"
+                                ><img src="images/icons/linkedin.svg" alt="LinkedIn"
+                            /></a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.yelp.com/biz/xr3yQN_m2SgO0R_7S6p62w"
+                                aria-label="Yelp (opens in a new tab)"
+                                target="_blank"
+                                ><img src="images/icons/yelp.svg" alt="Yelp"
+                            /></a>
+                        </li>
+                    </ul>
                 </div>
                 <nav class="footer__col" aria-label="Footer">
                     <h3>Explore</h3>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#listings">Listings</a></li>
-                        <li><a href="#get-it-sold">Let’s Move</a></li>
-                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#listings">Search Listings</a></li>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="#why-us">Why Us</a></li>
                         <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#reviews">Reviews</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#services-and-reviews">Services &amp; Reviews</a></li>
+                        <li><a href="#contact">Call or Visit</a></li>
                     </ul>
                 </nav>
                 <div class="footer__col">
